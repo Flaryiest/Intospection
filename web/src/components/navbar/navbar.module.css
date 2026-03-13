@@ -1,0 +1,24 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.logo {
+    font-size: 1.4em;
+    font-weight: 500;
+}
+
+.navList {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+
+}
+
