@@ -9,63 +9,42 @@
  *
  * Please import the `PrismaClient` class from the `client.ts` file instead.
  */
-import * as runtime from "@prisma/client/runtime/library";
+import * as runtime from "@prisma/client/runtime/client";
 const config = {
-    "generator": {
-        "name": "client",
-        "provider": {
-            "fromEnvVar": null,
-            "value": "prisma-client"
-        },
-        "output": {
-            "value": "C:\\Users\\ericm\\Documents\\GitHub\\intospection\\api\\src\\generated\\prisma",
-            "fromEnvVar": null
-        },
-        "config": {
-            "engineType": "library"
-        },
-        "binaryTargets": [
-            {
-                "fromEnvVar": null,
-                "value": "windows",
-                "native": true
-            }
-        ],
-        "previewFeatures": [],
-        "sourceFilePath": "C:\\Users\\ericm\\Documents\\GitHub\\intospection\\api\\prisma\\schema.prisma",
-        "isCustomOutput": true
-    },
-    "relativePath": "../../../prisma",
-    "clientVersion": "6.19.2",
-    "engineVersion": "c2990dca591cba766e3b7ef5d9e8a84796e47ab7",
-    "datasourceNames": [
-        "db"
-    ],
+    "previewFeatures": [],
+    "clientVersion": "7.5.0",
+    "engineVersion": "280c870be64f457428992c43c1f6d557fab6e29e",
     "activeProvider": "postgresql",
-    "postinstall": false,
-    "inlineDatasources": {
-        "db": {
-            "url": {
-                "fromEnvVar": "DATABASE_URL",
-                "value": null
-            }
-        }
-    },
-    "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client\"\n  output   = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel MailingList {\n  id        Int      @id @default(autoincrement())\n  email     String   @unique\n  createdAt DateTime @default(now())\n}\n",
-    "inlineSchemaHash": "43814d522adfccd1ffa6a8a964fe510bedc6df0fdd08adc5285131aad257e751",
-    "copyEngine": true,
+    "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client\"\n  output   = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n}\n\nmodel MailingList {\n  id        Int      @id @default(autoincrement())\n  email     String   @unique\n  createdAt DateTime @default(now())\n}\n",
     "runtimeDataModel": {
         "models": {},
         "enums": {},
         "types": {}
     },
-    "dirname": ""
+    "parameterizationSchema": {
+        "strings": [],
+        "graph": ""
+    }
 };
-config.runtimeDataModel = JSON.parse("{\"models\":{\"MailingList\":{\"dbName\":null,\"schema\":null,\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":true,\"isReadOnly\":false,\"hasDefaultValue\":true,\"type\":\"Int\",\"nativeType\":null,\"default\":{\"name\":\"autoincrement\",\"args\":[]},\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"email\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":true,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"nativeType\":null,\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":true,\"type\":\"DateTime\",\"nativeType\":null,\"default\":{\"name\":\"now\",\"args\":[]},\"isGenerated\":false,\"isUpdatedAt\":false}],\"primaryKey\":null,\"uniqueFields\":[],\"uniqueIndexes\":[],\"isGenerated\":false}},\"enums\":{},\"types\":{}}");
-config.engineWasm = undefined;
-config.compilerWasm = undefined;
-export function getPrismaClientClass(dirname) {
-    config.dirname = dirname;
+config.runtimeDataModel = JSON.parse("{\"models\":{\"MailingList\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}");
+config.parameterizationSchema = {
+    strings: JSON.parse("[\"where\",\"MailingList.findUnique\",\"MailingList.findUniqueOrThrow\",\"orderBy\",\"cursor\",\"MailingList.findFirst\",\"MailingList.findFirstOrThrow\",\"MailingList.findMany\",\"data\",\"MailingList.createOne\",\"MailingList.createMany\",\"MailingList.createManyAndReturn\",\"MailingList.updateOne\",\"MailingList.updateMany\",\"MailingList.updateManyAndReturn\",\"create\",\"update\",\"MailingList.upsertOne\",\"MailingList.deleteOne\",\"MailingList.deleteMany\",\"having\",\"_count\",\"_avg\",\"_sum\",\"_min\",\"_max\",\"MailingList.groupBy\",\"MailingList.aggregate\",\"AND\",\"OR\",\"NOT\",\"id\",\"email\",\"createdAt\",\"equals\",\"in\",\"notIn\",\"lt\",\"lte\",\"gt\",\"gte\",\"not\",\"contains\",\"startsWith\",\"endsWith\",\"set\",\"increment\",\"decrement\",\"multiply\",\"divide\"]"),
+    graph: "MAsQBhwAACUAMB0AAAQAEB4AACUAMB8CAAAAASABAAAAASFAACgAIQEAAAABACABAAAAAQAgBhwAACUAMB0AAAQAEB4AACUAMB8CACYAISABACcAISFAACgAIQADAAAABAAgAwAABQAwBAAAAQAgAwAAAAQAIAMAAAUAMAQAAAEAIAMAAAAEACADAAAFADAEAAABACADHwIAAAABIAEAAAABIUAAAAABAQgAAAkAIAMfAgAAAAEgAQAAAAEhQAAAAAEBCAAACwAwAQgAAAsAMAMfAgAwACEgAQAuACEhQAAvACECAAAAAQAgCAAADgAgAx8CADAAISABAC4AISFAAC8AIQIAAAAEACAIAAAQACACAAAABAAgCAAAEAAgAwAAAAEAIA8AAAkAIBAAAA4AIAEAAAABACABAAAABAAgBRUAACkAIBYAACoAIBcAAC0AIBgAACwAIBkAACsAIAYcAAAaADAdAAAXABAeAAAaADAfAgAbACEgAQAcACEhQAAdACEDAAAABAAgAwAAFgAwFAAAFwAgAwAAAAQAIAMAAAUAMAQAAAEAIAYcAAAaADAdAAAXABAeAAAaADAfAgAbACEgAQAcACEhQAAdACENFQAAHwAgFgAAJAAgFwAAHwAgGAAAHwAgGQAAHwAgIgIAAAABIwIAAAAEJAIAAAAEJQIAAAABJgIAAAABJwIAAAABKAIAAAABKQIAIwAhDhUAAB8AIBgAACIAIBkAACIAICIBAAAAASMBAAAABCQBAAAABCUBAAAAASYBAAAAAScBAAAAASgBAAAAASkBACEAISoBAAAAASsBAAAAASwBAAAAAQsVAAAfACAYAAAgACAZAAAgACAiQAAAAAEjQAAAAAQkQAAAAAQlQAAAAAEmQAAAAAEnQAAAAAEoQAAAAAEpQAAeACELFQAAHwAgGAAAIAAgGQAAIAAgIkAAAAABI0AAAAAEJEAAAAAEJUAAAAABJkAAAAABJ0AAAAABKEAAAAABKUAAHgAhCCICAAAAASMCAAAABCQCAAAABCUCAAAAASYCAAAAAScCAAAAASgCAAAAASkCAB8AIQgiQAAAAAEjQAAAAAQkQAAAAAQlQAAAAAEmQAAAAAEnQAAAAAEoQAAAAAEpQAAgACEOFQAAHwAgGAAAIgAgGQAAIgAgIgEAAAABIwEAAAAEJAEAAAAEJQEAAAABJgEAAAABJwEAAAABKAEAAAABKQEAIQAhKgEAAAABKwEAAAABLAEAAAABCyIBAAAAASMBAAAABCQBAAAABCUBAAAAASYBAAAAAScBAAAAASgBAAAAASkBACIAISoBAAAAASsBAAAAASwBAAAAAQ0VAAAfACAWAAAkACAXAAAfACAYAAAfACAZAAAfACAiAgAAAAEjAgAAAAQkAgAAAAQlAgAAAAEmAgAAAAEnAgAAAAEoAgAAAAEpAgAjACEIIggAAAABIwgAAAAEJAgAAAAEJQgAAAABJggAAAABJwgAAAABKAgAAAABKQgAJAAhBhwAACUAMB0AAAQAEB4AACUAMB8CACYAISABACcAISFAACgAIQgiAgAAAAEjAgAAAAQkAgAAAAQlAgAAAAEmAgAAAAEnAgAAAAEoAgAAAAEpAgAfACELIgEAAAABIwEAAAAEJAEAAAAEJQEAAAABJgEAAAABJwEAAAABKAEAAAABKQEAIgAhKgEAAAABKwEAAAABLAEAAAABCCJAAAAAASNAAAAABCRAAAAABCVAAAAAASZAAAAAASdAAAAAAShAAAAAASlAACAAIQAAAAAAAS0BAAAAAQEtQAAAAAEFLQIAAAABLgIAAAABLwIAAAABMAIAAAABMQIAAAABAAAAAAUVAAYWAAcXAAgYAAkZAAoAAAAAAAUVAAYWAAcXAAgYAAkZAAoBAgECAwEFBgEGBwEHCAEJCgEKDAILDQMMDwENEQIOEgQREwESFAETFQIaGAUbGQs"
+};
+async function decodeBase64AsWasm(wasmBase64) {
+    const { Buffer } = await import('node:buffer');
+    const wasmArray = Buffer.from(wasmBase64, 'base64');
+    return new WebAssembly.Module(wasmArray);
+}
+config.compilerWasm = {
+    getRuntime: async () => await import("@prisma/client/runtime/query_compiler_fast_bg.postgresql.mjs"),
+    getQueryCompilerWasmModule: async () => {
+        const { wasm } = await import("@prisma/client/runtime/query_compiler_fast_bg.postgresql.wasm-base64.mjs");
+        return await decodeBase64AsWasm(wasm);
+    },
+    importName: "./query_compiler_fast_bg.js"
+};
+export function getPrismaClientClass() {
     return runtime.getPrismaClient(config);
 }
 //# sourceMappingURL=class.js.map

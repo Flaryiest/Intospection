@@ -8,7 +8,6 @@
  *
  * 🟢 You can import this file directly.
  */
-import * as process from 'node:process';
 import * as path from 'node:path';
 import { fileURLToPath } from 'node:url';
 globalThis['__dirname'] = path.dirname(fileURLToPath(import.meta.url));
@@ -22,16 +21,15 @@ export * from "./enums.js";
  * Type-safe database client for TypeScript
  * @example
  * ```
- * const prisma = new PrismaClient()
+ * const prisma = new PrismaClient({
+ *   adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL })
+ * })
  * // Fetch zero or more MailingLists
  * const mailingLists = await prisma.mailingList.findMany()
  * ```
  *
- * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client).
+ * Read more in our [docs](https://pris.ly/d/client).
  */
-export const PrismaClient = $Class.getPrismaClientClass(__dirname);
+export const PrismaClient = $Class.getPrismaClientClass();
 export { Prisma };
-// file annotations for bundling tools to include these files
-path.join(__dirname, "query_engine-windows.dll.node");
-path.join(process.cwd(), "src/generated/prisma/query_engine-windows.dll.node");
 //# sourceMappingURL=client.js.map
