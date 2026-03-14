@@ -6,16 +6,13 @@ export default function Navbar() {
         <nav className={styles.nav}>
             <ul className={styles.navList}>
                 <li className={styles.navItem}>
-                    <Link to="/">About</Link>
+                    <Link to="/experiences">Experiences</Link>
                 </li>
                 <li className={styles.navItem}>
-                    <Link to="/about">Experiences</Link>
+                    <Link to="/writing">Writing</Link>
                 </li>
                 <li className={styles.navItem}>
-                    <Link to="/about">Writing</Link>
-                </li>
-                <li className={styles.navItem}>
-                    <Link to="/about">Artifacts</Link>
+                    <Link to="/artifacts">Artifacts</Link>
                 </li>
             </ul>
         </nav>
