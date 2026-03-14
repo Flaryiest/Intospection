@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom'
 export default function Navbar() {
     return (
         <header className={styles.header}>
-            <h3 className={styles.logo}>Eric Zuo</h3>
+            <Link to="/" className={styles.logo}>
+                Eric Zuo
+            </Link>
             <nav className={styles.nav}>
                 <ul className={styles.navList}>
                     <li className={styles.navItem}>
