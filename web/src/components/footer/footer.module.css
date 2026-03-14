@@ -19,7 +19,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    flex: 2 0 0;
+}
+
+.commands {
+    display: flex;
+    flex-direction: row;
+    flex: 1 0 0;
 }
 
 .link {
@@ -35,6 +41,11 @@
     background: none;
     border: none;
     padding: 0;
+    min-width: 10ch;
+}
+
+.searchButton {
+    min-width: 10ch;
 }
 
 .divider {
@@ -42,4 +53,29 @@
     min-width: 2px;
     height: 20px;
     background-color: #656565;
+}
+
+@media (max-width: 600px) {
+    .footer {
+        width: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        box-sizing: border-box;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .divider {
+        display: none;
+    }
+
+    .list {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .commands {
+        width: 100%;
+        box-sizing: border-box;
+    }
 }
