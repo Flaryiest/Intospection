@@ -15,10 +15,17 @@
     font-weight: 500;
 }
 
+.nav {
+
+}
+
 .navList {
     display: flex;
     flex-direction: row;
     gap: 1rem;
+}
+
+.navItem {
 
 }
 

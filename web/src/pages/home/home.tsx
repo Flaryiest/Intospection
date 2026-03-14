@@ -1,5 +1,6 @@
 import styles from './home.module.css';
 import Navbar from "@components/navbar/navbar.tsx";
+import Footer from "@components/footer/footer.tsx";
 export function Home() {
     return <div className={styles.page}>
         <Navbar />
@@ -17,5 +18,6 @@ export function Home() {
             </div>
             <div className={styles.sectionDivider}></div>
         </div>
+        <Footer />
     </div>
 }

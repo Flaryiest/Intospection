@@ -12,6 +12,12 @@
     width: 1200px;
     display: flex;
     flex-direction: column;
+    line-height: 1.5;
+    max-width: 100dvw;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 2rem;
+    box-sizing: border-box;
 
 }
 
