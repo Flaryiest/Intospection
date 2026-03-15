@@ -1,0 +1,88 @@
+[
+    {
+        "id": "31ecf67e-5b28-80f7-aacb-ee9067597737",
+        "title": "Listening",
+        "enjoyment": 7,
+        "importance": 9,
+        "status": "Completed",
+        "url": "https://www.benkuhn.net/listen/",
+        "createdAt": "2026-03-09T14:42:00.000Z",
+        "notes": "How to Listen",
+        "tags": [
+            "Life",
+            "Career"
+        ]
+    },
+    {
+        "id": "317cf67e-5b28-804c-992e-e7dcd82ccf82",
+        "title": "The Shark",
+        "enjoyment": 9,
+        "importance": 8,
+        "status": "Completed",
+        "url": "https://quarter--mile.com/The-Shark",
+        "createdAt": "2026-03-02T21:14:00.000Z",
+        "notes": "What Truly Matters",
+        "tags": [
+            "Life",
+            "AI / Agents",
+            "Software"
+        ]
+    },
+    {
+        "id": "317cf67e-5b28-80da-b566-d1a9f58efd46",
+        "title": "But Did They Win",
+        "enjoyment": 8,
+        "importance": 5,
+        "status": "Completed",
+        "url": "https://quarter--mile.com/But-Did-They-Win",
+        "createdAt": "2026-03-02T21:13:00.000Z",
+        "notes": null,
+        "tags": [
+            "Life",
+            "Career"
+        ]
+    },
+    {
+        "id": "313cf67e-5b28-8024-9321-ca2407f0bdac",
+        "title": "CNN",
+        "enjoyment": 3,
+        "importance": 4,
+        "status": "Completed",
+        "url": "https://towardsdatascience.com/convolutional-neural-networks-explained-9cc5188c4939/",
+        "createdAt": "2026-02-26T04:57:00.000Z",
+        "notes": "CNN",
+        "tags": [
+            "Machine Learning",
+            "Math",
+            "Software"
+        ]
+    },
+    {
+        "id": "310cf67e-5b28-8092-9af0-e351a46ff104",
+        "title": "Depression Handbook",
+        "enjoyment": 8,
+        "importance": 7,
+        "status": "Completed",
+        "url": "https://masonjwang.com/writing/handbook",
+        "createdAt": "2026-02-23T15:22:00.000Z",
+        "notes": "Quick Summary",
+        "tags": [
+            "Life"
+        ]
+    },
+    {
+        "id": "30fcf67e-5b28-8035-8645-ce85519158ee",
+        "title": "JavaScript/React Notes",
+        "enjoyment": 6,
+        "importance": 8,
+        "status": "Completed",
+        "url": "https://pomb.us/build-your-own-react/",
+        "createdAt": "2026-02-22T16:47:00.000Z",
+        "notes": "Build Y/O React - Understanding/Notes are moderately dated and based on a toy version (eg no optimizations)",
+        "tags": [
+            "Software",
+            "React.js",
+            "Systems"
+        ]
+    }
+]

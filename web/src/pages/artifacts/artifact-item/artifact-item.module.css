@@ -1,0 +1,63 @@
+.item {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.item:last-child {
+    border-bottom: none;
+}
+
+.header {
+    margin-bottom: 0.5rem;
+}
+
+.title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #222;
+}
+
+a.title:hover {
+    text-decoration: underline;
+}
+
+.meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    color: #777;
+}
+
+.score {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.date {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.tag {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 1rem;
+    background: #eaeaea;
+    color: #555;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.notes {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.5;
+    margin-top: 0.4rem;
+    font-family: 'Open Sans', sans-serif;
+}
