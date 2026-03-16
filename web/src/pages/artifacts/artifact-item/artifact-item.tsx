@@ -1,8 +1,11 @@
 import type { Artifact } from '@data/types'
+import ScoreRing from './score-ring'
 import styles from './artifact-item.module.css'
 
 interface ArtifactItemProps {
     artifact: Artifact
+    isActive: boolean
+    onSelect: (artifact: Artifact) => void
 }
 
 function formatDate(dateStr: string | null): string {
@@ -15,52 +18,55 @@ function formatDate(dateStr: string | null): string {
     })
 }
 
-export default function ArtifactItem({ artifact }: ArtifactItemProps) {
+export default function ArtifactItem({
+    artifact,
+    isActive,
+    onSelect,
+}: ArtifactItemProps) {
     return (
-        <div className={styles.item}>
-            <div className={styles.header}>
-                {artifact.url ? (
-                    <a
-                        href={artifact.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.title}
-                    >
-                        {artifact.title}
-                    </a>
-                ) : (
+        <tr
+            className={`${styles.row}${isActive ? ` ${styles.active}` : ''}`}
+            onClick={() => onSelect(artifact)}
+        >
+            <td>
+                <div className={styles.info}>
                     <span className={styles.title}>{artifact.title}</span>
-                )}
-            </div>
-            <div className={styles.meta}>
-                {artifact.enjoyment !== null && (
-                    <span className={styles.score}>
-                        Enjoyment: {artifact.enjoyment}/10
-                    </span>
-                )}
-                {artifact.importance !== null && (
-                    <span className={styles.score}>
-                        Importance: {artifact.importance}/10
-                    </span>
-                )}
-                {artifact.createdAt && (
-                    <span className={styles.date}>
-                        {formatDate(artifact.createdAt)}
-                    </span>
-                )}
-            </div>
-            {artifact.tags.length > 0 && (
-                <div className={styles.tags}>
-                    {artifact.tags.map((tag) => (
-                        <span key={tag} className={styles.tag}>
-                            {tag}
-                        </span>
-                    ))}
+                    {artifact.tags.length > 0 && (
+                        <div className={styles.tags}>
+                            {artifact.tags.map((tag) => (
+                                <span key={tag} className={styles.tag}>
+                                    {tag}
+                                </span>
+                            ))}
+                        </div>
+                    )}
                 </div>
-            )}
-            {artifact.notes && (
-                <p className={styles.notes}>{artifact.notes}</p>
-            )}
-        </div>
+            </td>
+            <td className={styles.date}>
+                {artifact.createdAt ? formatDate(artifact.createdAt) : '—'}
+            </td>
+            <td className={styles.scoreCell}>
+                {artifact.enjoyment !== null ? (
+                    <ScoreRing
+                        value={artifact.enjoyment}
+                        color="green"
+                        label=""
+                    />
+                ) : (
+                    <span className={styles.emptyScore}>—</span>
+                )}
+            </td>
+            <td className={styles.scoreCell}>
+                {artifact.importance !== null ? (
+                    <ScoreRing
+                        value={artifact.importance}
+                        color="blue"
+                        label=""
+                    />
+                ) : (
+                    <span className={styles.emptyScore}>—</span>
+                )}
+            </td>
+        </tr>
     )
 }

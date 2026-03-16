@@ -4,6 +4,8 @@
     height: 100%;
     align-items: center;
     justify-content: center;
+    padding-bottom: 5rem;
+    padding-top: 5rem;
 }
 
 .footer {

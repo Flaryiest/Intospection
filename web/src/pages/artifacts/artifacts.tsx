@@ -1,14 +1,31 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useCallback, useEffect } from 'react'
 import artifactsData from '@data/artifacts.json'
 import type { Artifact } from '@data/types'
 import TagFilter from '@components/tag-filter/tag-filter'
+import ScoreRing from './artifact-item/score-ring'
 import ArtifactItem from './artifact-item/artifact-item'
 import styles from './artifacts.module.css'
 
 const artifacts = artifactsData as Artifact[]
 
+function formatDate(dateStr: string | null): string {
+    if (!dateStr) return ''
+    const date = new Date(dateStr)
+    return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+    })
+}
+
+type SortField = 'enjoyment' | 'importance'
+type SortDir = 'asc' | 'desc'
+type SortState = { field: SortField; dir: SortDir } | null
+
 export default function Artifacts() {
     const [activeTag, setActiveTag] = useState<string | null>(null)
+    const [selected, setSelected] = useState<Artifact | null>(null)
+    const [sort, setSort] = useState<SortState>(null)
 
     const allTags = useMemo(() => {
         const tagSet = new Set<string>()
@@ -21,6 +38,33 @@ export default function Artifacts() {
         return artifacts.filter((a) => a.tags.includes(activeTag))
     }, [activeTag])
 
+    const sorted = useMemo(() => {
+        if (!sort) return filtered
+        return [...filtered].sort((a, b) => {
+            const av = a[sort.field] ?? -1
+            const bv = b[sort.field] ?? -1
+            return sort.dir === 'desc' ? bv - av : av - bv
+        })
+    }, [filtered, sort])
+
+    const toggleSort = useCallback((field: SortField) => {
+        setSort((prev) => {
+            if (!prev || prev.field !== field) return { field, dir: 'desc' }
+            if (prev.dir === 'desc') return { field, dir: 'asc' }
+            return null
+        })
+    }, [])
+
+    const closeSidebar = useCallback(() => setSelected(null), [])
+
+    useEffect(() => {
+        const handleKey = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') closeSidebar()
+        }
+        document.addEventListener('keydown', handleKey)
+        return () => document.removeEventListener('keydown', handleKey)
+    }, [closeSidebar])
+
     return (
         <div className={styles.container}>
             <h1 className={styles.title}>Artifacts</h1>
@@ -32,10 +76,47 @@ export default function Artifacts() {
                 activeTag={activeTag}
                 onTagSelect={setActiveTag}
             />
-            <div className={styles.list}>
-                {filtered.map((artifact) => (
-                    <ArtifactItem key={artifact.id} artifact={artifact} />
-                ))}
+            <div className={styles.tableWrap}>
+            <table className={styles.table}>
+                <thead>
+                    <tr>
+                        <th className={styles.colTitle}>Title</th>
+                        <th className={styles.colDate}>Date</th>
+                        <th
+                            className={`${styles.colEnjoyment} ${styles.sortable}`}
+                            onClick={() => toggleSort('enjoyment')}
+                        >
+                            Enjoyment
+                            <span
+                                className={`${styles.sortArrow}${sort?.field === 'enjoyment' ? ` ${styles.sortArrowVisible}` : ''}`}
+                            >
+                                {sort?.field === 'enjoyment' && sort.dir === 'asc' ? '▲' : '▼'}
+                            </span>
+                        </th>
+                        <th
+                            className={`${styles.colImportance} ${styles.sortable}`}
+                            onClick={() => toggleSort('importance')}
+                        >
+                            Importance
+                            <span
+                                className={`${styles.sortArrow}${sort?.field === 'importance' ? ` ${styles.sortArrowVisible}` : ''}`}
+                            >
+                                {sort?.field === 'importance' && sort.dir === 'asc' ? '▲' : '▼'}
+                            </span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {sorted.map((artifact) => (
+                        <ArtifactItem
+                            key={artifact.id}
+                            artifact={artifact}
+                            isActive={selected?.id === artifact.id}
+                            onSelect={setSelected}
+                        />
+                    ))}
+                </tbody>
+            </table>
             </div>
             {artifacts.length > 0 && (
                 <p className={styles.count}>
@@ -43,6 +124,80 @@ export default function Artifacts() {
                     {filtered.length !== 1 ? 's' : ''}
                     {activeTag ? ` tagged "${activeTag}"` : ''}
                 </p>
+            )}
+
+            {selected && (
+                <>
+                    <div
+                        className={styles.overlay}
+                        onClick={closeSidebar}
+                    />
+                    <div className={styles.sidebar}>
+                        <button
+                            className={styles.sidebarClose}
+                            onClick={closeSidebar}
+                            aria-label="Close"
+                        >
+                            &times;
+                        </button>
+                        <h2 className={styles.sidebarTitle}>
+                            {selected.title}
+                        </h2>
+                        {selected.url && (
+                            <a
+                                href={selected.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.sidebarLink}
+                            >
+                                {selected.url}
+                            </a>
+                        )}
+                        {selected.createdAt && (
+                            <p className={styles.sidebarDate}>
+                                {formatDate(selected.createdAt)}
+                            </p>
+                        )}
+                        <div className={styles.sidebarScores}>
+                            {selected.enjoyment !== null && (
+                                <ScoreRing
+                                    value={selected.enjoyment}
+                                    color="green"
+                                    label="Enjoyment"
+                                />
+                            )}
+                            {selected.importance !== null && (
+                                <ScoreRing
+                                    value={selected.importance}
+                                    color="blue"
+                                    label="Importance"
+                                />
+                            )}
+                        </div>
+                        {selected.tags.length > 0 && (
+                            <div className={styles.sidebarTags}>
+                                {selected.tags.map((tag) => (
+                                    <span
+                                        key={tag}
+                                        className={styles.sidebarTag}
+                                    >
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                        )}
+                        {selected.notes && (
+                            <>
+                                <p className={styles.sidebarNotesLabel}>
+                                    Notes
+                                </p>
+                                <p className={styles.sidebarNotes}>
+                                    {selected.notes}
+                                </p>
+                            </>
+                        )}
+                    </div>
+                </>
             )}
         </div>
     )
