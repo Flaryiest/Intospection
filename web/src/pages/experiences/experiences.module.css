@@ -1,0 +1,201 @@
+.container {
+    width: 100%;
+    padding: 0 2.5rem;
+    box-sizing: border-box;
+}
+
+.header {
+    max-width: 560px;
+    margin-bottom: 2.5rem;
+}
+
+.title {
+    font-size: 2.1rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    margin-bottom: 0.75rem;
+    color: #111;
+}
+
+.subtitle {
+    font-size: 0.95rem;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.85;
+    color: #555;
+}
+
+/* Two-column layout */
+.columns {
+    display: flex;
+    gap: 4rem;
+}
+
+.main {
+    flex: 1;
+    max-width: 560px;
+}
+
+.aside {
+    width: 200px;
+    flex-shrink: 0;
+    padding-top: 0.25rem;
+}
+
+/* Sections */
+.section {
+    margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+    font-size: 0.75rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #aaa;
+    margin-bottom: 1.25rem;
+}
+
+/* Entries */
+.entry {
+    margin-bottom: 1.5rem;
+}
+
+.entryHeader {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 0.35rem;
+}
+
+.entryTitle {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #222;
+}
+
+.entryMeta {
+    font-size: 0.78rem;
+    font-family: 'Open Sans', sans-serif;
+    color: #bbb;
+    white-space: nowrap;
+}
+
+.entryDesc {
+    font-size: 0.88rem;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.8;
+    color: #666;
+}
+
+.link {
+    color: #222;
+    text-decoration: none;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 1px;
+    transition: border-color 0.2s ease;
+}
+
+.link:hover {
+    border-color: #333;
+}
+
+/* Divider */
+.divider {
+    width: 100%;
+    height: 1px;
+    background-color: #d8d8d8;
+    margin-top: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+/* Log */
+.logSubtitle {
+    font-size: 0.82rem;
+    font-family: 'Open Sans', sans-serif;
+    color: #999;
+    font-style: italic;
+    margin-bottom: 1.25rem;
+}
+
+.log {
+    display: flex;
+    flex-direction: column;
+}
+
+.logItem {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.logItem:last-child {
+    border-bottom: none;
+}
+
+.logTitle {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.logNote {
+    font-size: 0.78rem;
+    font-family: 'Open Sans', sans-serif;
+    color: #aaa;
+    white-space: nowrap;
+    text-align: right;
+}
+
+/* Aside cards */
+.asideCard {
+    margin-bottom: 2rem;
+}
+
+.asideLabel {
+    font-size: 0.7rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #aaa;
+    margin-bottom: 0.6rem;
+}
+
+.asideList {
+    font-size: 0.82rem;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.9;
+    color: #777;
+}
+
+.asideText {
+    font-size: 0.82rem;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.8;
+    color: #777;
+}
+
+/* Collapse aside on small screens */
+@media (max-width: 720px) {
+    .columns {
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    .aside {
+        width: 100%;
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .asideCard {
+        margin-bottom: 0;
+        flex: 1;
+        min-width: 140px;
+    }
+}
