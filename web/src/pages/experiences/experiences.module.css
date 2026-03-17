@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+@media (max-width: 600px) {
+    .container {
+        padding: 0 1.25rem;
+    }
+}
+
 .header {
     max-width: 560px;
     margin-bottom: 2.5rem;
