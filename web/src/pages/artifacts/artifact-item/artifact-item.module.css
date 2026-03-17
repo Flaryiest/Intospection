@@ -3,16 +3,16 @@
 }
 
 .row:hover {
-    background: rgba(0, 0, 0, 0.02);
+    background: var(--surface-hover);
 }
 
 .row.active {
-    background: rgba(33, 150, 243, 0.04);
+    background: var(--surface-active);
 }
 
 .row td {
     padding: 0.75rem 0.75rem;
-    border-bottom: 1px solid #e8e8e8;
+    border-bottom: 1px solid var(--border-lighter);
     vertical-align: middle;
 }
 
@@ -23,7 +23,7 @@
 .title {
     font-size: 1.05rem;
     font-weight: 600;
-    color: #222;
+    color: var(--text-secondary);
 }
 
 .tags {
@@ -37,14 +37,14 @@
     font-size: 0.7rem;
     padding: 0.15rem 0.5rem;
     border-radius: 1rem;
-    background: #eaeaea;
-    color: #555;
+    background: var(--surface);
+    color: var(--text-muted);
     font-family: 'Open Sans', sans-serif;
 }
 
 .date {
     font-size: 0.8rem;
-    color: #999;
+    color: var(--text-ghost);
     font-family: 'Open Sans', sans-serif;
     white-space: nowrap;
     text-align: center;
@@ -56,6 +56,6 @@
 
 .emptyScore {
     font-size: 0.8rem;
-    color: #ccc;
+    color: var(--text-invisible);
     font-family: 'Open Sans', sans-serif;
 }

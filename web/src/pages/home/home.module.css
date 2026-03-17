@@ -3,19 +3,19 @@
     font-weight: 600;
     letter-spacing: -0.015em;
     margin-bottom: 1.25rem;
-    color: #111;
+    color: var(--text-primary);
 }
 
 .subtitle {
     font-size: 0.95rem;
     font-family: 'Open Sans', sans-serif;
     line-height: 1.85;
-    color: #555;
+    color: var(--text-muted);
     max-width: 560px;
 }
 
 .dim {
-    color: #aaa;
+    color: var(--text-placeholder);
     font-size: 0.85rem;
 }
 
@@ -23,34 +23,34 @@
     font-size: 0.9rem;
     font-family: 'Open Sans', sans-serif;
     line-height: 1.85;
-    color: #666;
+    color: var(--text-dim);
     margin-top: 1.25rem;
 }
 
 .externalLink {
     font-weight: 600;
-    color: #333;
+    color: var(--text-secondary);
     text-decoration: none;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--link-underline);
     padding-bottom: 1px;
     transition: border-color 0.2s ease;
 }
 
 .externalLink:hover {
-    border-color: #333;
+    border-color: var(--text-secondary);
 }
 
 .pageLink {
     font-weight: 600;
-    color: #333;
+    color: var(--text-secondary);
     text-decoration: none;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--link-underline);
     padding-bottom: 1px;
     transition: border-color 0.2s ease;
 }
 
 .pageLink:hover {
-    border-color: #333;
+    border-color: var(--text-secondary);
 }
 
 .arrow {
@@ -70,7 +70,7 @@
 .sectionDivider {
     width: 100%;
     height: 1px;
-    background-color: #d8d8d8;
+    background-color: var(--border);
     margin-top: 4rem;
     margin-bottom: 4rem;
 }
@@ -82,7 +82,7 @@
 .sectionTwoTitle {
     font-size: 1.3rem;
     font-weight: 600;
-    color: #111;
+    color: var(--text-primary);
     margin-bottom: 1.25rem;
     letter-spacing: -0.01em;
 }
@@ -95,7 +95,7 @@
     font-size: 0.9rem;
     font-family: 'Open Sans', sans-serif;
     line-height: 1.85;
-    color: #555;
+    color: var(--text-muted);
 }
 
 .sectionTwoText p + p {

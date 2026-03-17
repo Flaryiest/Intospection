@@ -13,7 +13,7 @@
 
 .track {
     fill: none;
-    stroke: #e0e0e0;
+    stroke: var(--border-light);
     stroke-width: 3;
 }
 
@@ -24,16 +24,24 @@
     transition: stroke-dashoffset 0.3s ease;
 }
 
+.green {
+    stroke: var(--score-green);
+}
+
+.blue {
+    stroke: var(--score-blue);
+}
+
 .number {
     font-size: 13px;
     font-weight: 600;
     font-family: 'Open Sans', sans-serif;
-    fill: #333;
+    fill: var(--text-secondary);
 }
 
 .label {
     font-size: 0.65rem;
-    color: #999;
+    color: var(--text-ghost);
     font-family: 'Open Sans', sans-serif;
     text-transform: uppercase;
     letter-spacing: 0.03em;

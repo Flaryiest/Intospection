@@ -14,14 +14,14 @@
     font-weight: 600;
     letter-spacing: -0.015em;
     margin-bottom: 0.75rem;
-    color: #111;
+    color: var(--text-primary);
 }
 
 .subtitle {
     font-size: 0.95rem;
     font-family: 'Open Sans', sans-serif;
     line-height: 1.85;
-    color: #555;
+    color: var(--text-muted);
 }
 
 /* Two-column layout */
@@ -52,7 +52,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: #aaa;
+    color: var(--text-placeholder);
     margin-bottom: 1.25rem;
 }
 
@@ -71,13 +71,13 @@
 .entryTitle {
     font-size: 1.05rem;
     font-weight: 600;
-    color: #222;
+    color: var(--text-secondary);
 }
 
 .entryMeta {
     font-size: 0.78rem;
     font-family: 'Open Sans', sans-serif;
-    color: #bbb;
+    color: var(--text-whisper);
     white-space: nowrap;
 }
 
@@ -85,26 +85,26 @@
     font-size: 0.88rem;
     font-family: 'Open Sans', sans-serif;
     line-height: 1.8;
-    color: #666;
+    color: var(--text-dim);
 }
 
 .link {
-    color: #222;
+    color: var(--text-secondary);
     text-decoration: none;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--link-underline);
     padding-bottom: 1px;
     transition: border-color 0.2s ease;
 }
 
 .link:hover {
-    border-color: #333;
+    border-color: var(--text-secondary);
 }
 
 /* Divider */
 .divider {
     width: 100%;
     height: 1px;
-    background-color: #d8d8d8;
+    background-color: var(--border);
     margin-top: 1.5rem;
     margin-bottom: 2.5rem;
 }
@@ -113,7 +113,7 @@
 .logSubtitle {
     font-size: 0.82rem;
     font-family: 'Open Sans', sans-serif;
-    color: #999;
+    color: var(--text-ghost);
     font-style: italic;
     margin-bottom: 1.25rem;
 }
@@ -129,7 +129,7 @@
     justify-content: space-between;
     gap: 1rem;
     padding: 0.55rem 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--border-faintest);
 }
 
 .logItem:last-child {
@@ -139,13 +139,13 @@
 .logTitle {
     font-size: 0.92rem;
     font-weight: 600;
-    color: #333;
+    color: var(--text-secondary);
 }
 
 .logNote {
     font-size: 0.78rem;
     font-family: 'Open Sans', sans-serif;
-    color: #aaa;
+    color: var(--text-placeholder);
     white-space: nowrap;
     text-align: right;
 }
@@ -161,7 +161,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: #aaa;
+    color: var(--text-placeholder);
     margin-bottom: 0.6rem;
 }
 
@@ -169,14 +169,14 @@
     font-size: 0.82rem;
     font-family: 'Open Sans', sans-serif;
     line-height: 1.9;
-    color: #777;
+    color: var(--text-faint);
 }
 
 .asideText {
     font-size: 0.82rem;
     font-family: 'Open Sans', sans-serif;
     line-height: 1.8;
-    color: #777;
+    color: var(--text-faint);
 }
 
 /* Collapse aside on small screens */

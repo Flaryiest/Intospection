@@ -10,30 +10,30 @@
     font-weight: 600;
     letter-spacing: -0.015em;
     margin-bottom: 0.75rem;
-    color: #111;
+    color: var(--text-primary);
 }
 
 .subtitle {
     font-size: 0.95rem;
     font-family: 'Open Sans', sans-serif;
     line-height: 1.85;
-    color: #555;
+    color: var(--text-muted);
 }
 
 /* Subscribe section */
 .subscribe {
     margin-top: 2.5rem;
     padding: 1.75rem;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--subscribe-border);
     border-radius: 6px;
-    background: #fafafa;
+    background: var(--subscribe-bg);
 }
 
 .subscribeText {
     font-size: 0.88rem;
     font-family: 'Open Sans', sans-serif;
     line-height: 1.7;
-    color: #555;
+    color: var(--text-muted);
     margin-bottom: 1rem;
 }
 
@@ -47,20 +47,20 @@
     padding: 0.55rem 0.75rem;
     font-size: 0.85rem;
     font-family: 'Open Sans', sans-serif;
-    border: 1px solid #d0d0d0;
+    border: 1px solid var(--input-border);
     border-radius: 4px;
     outline: none;
-    background: #fff;
-    color: #333;
+    background: var(--input-bg);
+    color: var(--text-secondary);
     transition: border-color 0.2s ease;
 }
 
 .emailInput:focus {
-    border-color: #999;
+    border-color: var(--input-focus);
 }
 
 .emailInput::placeholder {
-    color: #bbb;
+    color: var(--text-whisper);
 }
 
 .subscribeBtn {
@@ -70,8 +70,8 @@
     font-size: 0.85rem;
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
-    background: #222;
-    color: #f5f5f5;
+    background: var(--btn-bg);
+    color: var(--btn-text);
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -80,25 +80,25 @@
 }
 
 .subscribeBtn:hover {
-    background: #444;
+    background: var(--btn-hover);
 }
 
 .subscribeBtn:disabled {
-    background: #888;
+    opacity: 0.5;
     cursor: not-allowed;
 }
 
 .successMsg {
     font-size: 0.88rem;
     font-family: 'Open Sans', sans-serif;
-    color: #4caf50;
+    color: var(--success);
     line-height: 1.7;
 }
 
 .errorMsg {
     font-size: 0.82rem;
     font-family: 'Open Sans', sans-serif;
-    color: #d32f2f;
+    color: var(--error);
     margin-top: 0.75rem;
     line-height: 1.5;
 }
@@ -107,7 +107,7 @@
 .divider {
     width: 100%;
     height: 1px;
-    background-color: #d8d8d8;
+    background-color: var(--border);
     margin-top: 3rem;
     margin-bottom: 3rem;
 }
@@ -120,7 +120,7 @@
 .emptyText {
     font-size: 0.9rem;
     font-family: 'Open Sans', sans-serif;
-    color: #999;
+    color: var(--text-ghost);
     font-style: italic;
     line-height: 1.7;
 }

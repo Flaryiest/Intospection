@@ -90,6 +90,10 @@ export default function CursorCanvas() {
 
         function animate() {
             time += 0.01
+            const inkColor =
+                getComputedStyle(document.documentElement)
+                    .getPropertyValue('--ink-color')
+                    .trim() || '20, 20, 20'
 
             ctx!.clearRect(
                 0,
@@ -141,13 +145,13 @@ export default function CursorCanvas() {
                     )
                     grad.addColorStop(
                         0,
-                        `rgba(20, 20, 20, ${opacity})`
+                        `rgba(${inkColor}, ${opacity})`
                     )
                     grad.addColorStop(
                         0.6,
-                        `rgba(30, 30, 30, ${opacity * 0.5})`
+                        `rgba(${inkColor}, ${opacity * 0.5})`
                     )
-                    grad.addColorStop(1, 'rgba(40, 40, 40, 0)')
+                    grad.addColorStop(1, `rgba(${inkColor}, 0)`)
 
                     ctx!.beginPath()
                     ctx!.arc(p.x, p.y, radius, 0, Math.PI * 2)

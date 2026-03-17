@@ -8,10 +8,6 @@ interface ScoreRingProps {
 
 const RADIUS = 16
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS
-const COLORS = {
-    green: '#4caf50',
-    blue: '#2196f3',
-}
 
 export default function ScoreRing({ value, color, label }: ScoreRingProps) {
     const offset = CIRCUMFERENCE * (1 - value / 10)
@@ -26,11 +22,10 @@ export default function ScoreRing({ value, color, label }: ScoreRingProps) {
                     r={RADIUS}
                 />
                 <circle
-                    className={styles.value}
+                    className={`${styles.value} ${color === 'green' ? styles.green : styles.blue}`}
                     cx="20"
                     cy="20"
                     r={RADIUS}
-                    stroke={COLORS[color]}
                     strokeDasharray={CIRCUMFERENCE}
                     strokeDashoffset={offset}
                 />
