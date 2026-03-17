@@ -11,7 +11,15 @@ const prisma = new PrismaClient({
 });
 
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://ericzuo.ca",
+      "https://www.ericzuo.ca",
+    ],
+  })
+);
 
 app.get("/api/health", (_req, res) => {
   res.json({ status: "ok", timestamp: new Date().toISOString() });

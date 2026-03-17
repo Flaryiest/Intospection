@@ -13,10 +13,11 @@ export default function Writing() {
         if (!email.trim()) return
 
         setStatus('loading')
+        const apiBase = import.meta.env.PROD
+            ? 'https://intospection-production.up.railway.app'
+            : 'http://localhost:3001'
         try {
-            const res = await fetch(
-                'http://localhost:3001/api/mailing-list',
-                {
+            const res = await fetch(`${apiBase}/api/mailing-list`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email: email.trim() }),
