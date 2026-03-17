@@ -66,6 +66,17 @@
 
 .searchButton {
     min-width: 10ch;
+    background: none;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    transition: color 0.2s ease;
+}
+
+.searchButton:hover {
+    color: var(--text-secondary);
 }
 
 .divider {

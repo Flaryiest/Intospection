@@ -10,7 +10,11 @@ function getStoredTheme(): Theme {
     return 'light'
 }
 
-export default function Footer() {
+interface FooterProps {
+    onOpenPalette: () => void
+}
+
+export default function Footer({ onOpenPalette }: FooterProps) {
     const [theme, setTheme] = useState<Theme>(getStoredTheme)
 
     useEffect(() => {
@@ -66,11 +70,12 @@ export default function Footer() {
 
                     <div className={styles.divider}></div>
 
-                    <div
+                    <button
                         className={`${styles.searchButton} ${styles.link}`}
+                        onClick={onOpenPalette}
                     >
-                        %/ctrl + k
-                    </div>
+                        ⌘/ctrl + k
+                    </button>
                 </div>
             </footer>
         </div>
