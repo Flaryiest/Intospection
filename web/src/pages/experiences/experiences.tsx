@@ -15,7 +15,30 @@ export default function Experiences() {
                 <div className={styles.main}>
                     <section className={styles.section}>
                         <h2 className={styles.sectionTitle}>Work</h2>
-
+                                                <div className={styles.entry}>
+                            <div className={styles.entryHeader}>
+                                <h3 className={styles.entryTitle}>
+                                    <a
+                                        href="https://hamming.ai"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={styles.link}
+                                    >
+                                        Hamming AI
+                                    </a>
+                                </h3>
+                                <span className={styles.entryMeta}>
+                                    YC S24
+                                </span>
+                            </div>
+                            <p className={styles.entryDesc}>
+                                AI testing infrastructure. Worked on
+                                making sure AI agents do what they're
+                                supposed to. Turns out that's harder than
+                                it sounds.
+                            </p>
+                        </div>
+                        
                         <div className={styles.entry}>
                             <div className={styles.entryHeader}>
                                 <h3 className={styles.entryTitle}>
@@ -63,29 +86,7 @@ export default function Experiences() {
                             </p>
                         </div>
 
-                        <div className={styles.entry}>
-                            <div className={styles.entryHeader}>
-                                <h3 className={styles.entryTitle}>
-                                    <a
-                                        href="https://hamming.ai"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className={styles.link}
-                                    >
-                                        Hamming AI
-                                    </a>
-                                </h3>
-                                <span className={styles.entryMeta}>
-                                    YC S24
-                                </span>
-                            </div>
-                            <p className={styles.entryDesc}>
-                                AI testing infrastructure. Worked on
-                                making sure AI agents do what they're
-                                supposed to. Turns out that's harder than
-                                it sounds.
-                            </p>
-                        </div>
+
                     </section>
 
                     <div className={styles.divider}></div>
@@ -105,8 +106,7 @@ export default function Experiences() {
                             <p className={styles.entryDesc}>
                                 Studying the language that makes
                                 everything from graphics to machine
-                                learning actually work. Eigenvalues are
-                                growing on me.
+                                learning actually work.
                             </p>
                         </div>
 
@@ -136,8 +136,7 @@ export default function Experiences() {
                         <div className={styles.entry}>
                             <p className={styles.entryDesc}>
                                 Travel the world. Become a great person,
-                                or at least an interesting one. The
-                                details are deliberately left vague.
+                                or at least an interesting one.
                             </p>
                         </div>
                     </section>
