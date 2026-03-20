@@ -43,6 +43,30 @@ export default function Experiences() {
                             <div className={styles.entryHeader}>
                                 <h3 className={styles.entryTitle}>
                                     <a
+                                        href="https://heartline.app"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={styles.link}
+                                    >
+                                        Heartline
+                                    </a>
+                                </h3>
+                                <span className={styles.entryMeta}>
+                                    Intern
+                                </span>
+                            </div>
+                            <p className={styles.entryDesc}>
+                                AI-powered mental health app. Worked on the
+                                intervention pipeline and helped redesign
+                                the interface with the design team. React
+                                Native and Golang.
+                            </p>
+                        </div>
+
+                        <div className={styles.entry}>
+                            <div className={styles.entryHeader}>
+                                <h3 className={styles.entryTitle}>
+                                    <a
                                         href="https://hamming.ai"
                                         target="_blank"
                                         rel="noopener noreferrer"
