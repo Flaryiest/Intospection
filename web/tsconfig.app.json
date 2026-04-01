@@ -30,7 +30,8 @@
             "@components/*": ["src/components/*"],
             "@pages/*": ["src/pages/*"],
             "@assets/*": ["src/assets/*"],
-            "@data/*": ["src/data/*"]
+            "@data/*": ["src/data/*"],
+            "@hooks/*": ["src/hooks/*"]
         }
     },
     "include": ["src"]

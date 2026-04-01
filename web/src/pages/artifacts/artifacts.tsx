@@ -1,12 +1,10 @@
 import { useState, useMemo, useCallback, useEffect } from 'react'
-import artifactsData from '@data/artifacts.json'
 import type { Artifact } from '@data/types'
+import { useArtifacts } from '@hooks/useArtifacts'
 import TagFilter from '@components/tag-filter/tag-filter'
 import ScoreRing from './artifact-item/score-ring'
 import ArtifactItem from './artifact-item/artifact-item'
 import styles from './artifacts.module.css'
-
-const artifacts = artifactsData as Artifact[]
 
 function formatDate(dateStr: string | null): string {
     if (!dateStr) return ''
@@ -23,6 +21,7 @@ type SortDir = 'asc' | 'desc'
 type SortState = { field: SortField; dir: SortDir } | null
 
 export default function Artifacts() {
+    const { artifacts, isLoading, error } = useArtifacts()
     const [activeTag, setActiveTag] = useState<string | null>(null)
     const [selected, setSelected] = useState<Artifact | null>(null)
     const [sort, setSort] = useState<SortState>(null)
@@ -31,12 +30,12 @@ export default function Artifacts() {
         const tagSet = new Set<string>()
         artifacts.forEach((a) => a.tags.forEach((t) => tagSet.add(t)))
         return Array.from(tagSet).sort()
-    }, [])
+    }, [artifacts])
 
     const filtered = useMemo(() => {
         if (!activeTag) return artifacts
         return artifacts.filter((a) => a.tags.includes(activeTag))
-    }, [activeTag])
+    }, [artifacts, activeTag])
 
     const sorted = useMemo(() => {
         if (!sort) return filtered
@@ -71,6 +70,11 @@ export default function Artifacts() {
             <p className={styles.subtitle}>
                 Things I've read, watched, and explored.
             </p>
+            {isLoading ? (
+                <p className={styles.subtitle}>Loading artifacts...</p>
+            ) : error ? (
+                <p className={styles.subtitle}>Failed to load artifacts.</p>
+            ) : (<>
             <TagFilter
                 tags={allTags}
                 activeTag={activeTag}
@@ -107,13 +111,14 @@ export default function Artifacts() {
                 </tbody>
             </table>
             </div>
-            {artifacts.length > 0 && (
+            {!isLoading && !error && artifacts.length > 0 && (
                 <p className={styles.count}>
                     {filtered.length} artifact
                     {filtered.length !== 1 ? 's' : ''}
                     {activeTag ? ` tagged "${activeTag}"` : ''}
                 </p>
             )}
+            </>)}
 
             {selected && (
                 <>
