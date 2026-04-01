@@ -1,0 +1,15 @@
+{
+    "name": "intospection-artifacts",
+    "main": "src/index.ts",
+    "compatibility_date": "2025-01-01",
+    "compatibility_flags": ["nodejs_compat"],
+    "kv_namespaces": [
+        {
+            "binding": "ARTIFACTS_KV",
+            "id": "1b5c2197fb7e4e12af78f0d225196e42"
+        }
+    ],
+    "triggers": {
+        "crons": ["*/15 * * * *"]
+    }
+}
