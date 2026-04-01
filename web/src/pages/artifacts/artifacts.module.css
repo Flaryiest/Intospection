@@ -47,8 +47,7 @@
 }
 
 .table th:nth-child(2),
-.table th:nth-child(3),
-.table th:nth-child(4) {
+.table th:nth-child(3) {
     text-align: center;
 }
 
@@ -60,12 +59,8 @@
     width: 120px;
 }
 
-.colEnjoyment {
-    width: 100px;
-}
-
-.colImportance {
-    width: 100px;
+.colInternalization {
+    width: 120px;
 }
 
 .sortable {

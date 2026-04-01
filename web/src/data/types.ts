@@ -1,8 +1,7 @@
 export interface Artifact {
     id: string
     title: string
-    enjoyment: number | null
-    importance: number | null
+    internalization: number | null
     status: string | null
     url: string | null
     createdAt: string | null

@@ -18,7 +18,7 @@ function formatDate(dateStr: string | null): string {
     })
 }
 
-type SortField = 'enjoyment' | 'importance'
+type SortField = 'internalization'
 type SortDir = 'asc' | 'desc'
 type SortState = { field: SortField; dir: SortDir } | null
 
@@ -83,25 +83,14 @@ export default function Artifacts() {
                         <th className={styles.colTitle}>Title</th>
                         <th className={styles.colDate}>Date</th>
                         <th
-                            className={`${styles.colEnjoyment} ${styles.sortable}`}
-                            onClick={() => toggleSort('enjoyment')}
+                            className={`${styles.colInternalization} ${styles.sortable}`}
+                            onClick={() => toggleSort('internalization')}
                         >
-                            Enjoyment
+                            Internalization
                             <span
-                                className={`${styles.sortArrow}${sort?.field === 'enjoyment' ? ` ${styles.sortArrowVisible}` : ''}`}
+                                className={`${styles.sortArrow}${sort?.field === 'internalization' ? ` ${styles.sortArrowVisible}` : ''}`}
                             >
-                                {sort?.field === 'enjoyment' && sort.dir === 'asc' ? '▲' : '▼'}
-                            </span>
-                        </th>
-                        <th
-                            className={`${styles.colImportance} ${styles.sortable}`}
-                            onClick={() => toggleSort('importance')}
-                        >
-                            Importance
-                            <span
-                                className={`${styles.sortArrow}${sort?.field === 'importance' ? ` ${styles.sortArrowVisible}` : ''}`}
-                            >
-                                {sort?.field === 'importance' && sort.dir === 'asc' ? '▲' : '▼'}
+                                {sort?.field === 'internalization' && sort.dir === 'asc' ? '▲' : '▼'}
                             </span>
                         </th>
                     </tr>
@@ -159,18 +148,11 @@ export default function Artifacts() {
                             </p>
                         )}
                         <div className={styles.sidebarScores}>
-                            {selected.enjoyment !== null && (
+                            {selected.internalization !== null && (
                                 <ScoreRing
-                                    value={selected.enjoyment}
+                                    value={selected.internalization}
                                     color="green"
-                                    label="Enjoyment"
-                                />
-                            )}
-                            {selected.importance !== null && (
-                                <ScoreRing
-                                    value={selected.importance}
-                                    color="blue"
-                                    label="Importance"
+                                    label="Internalization"
                                 />
                             )}
                         </div>

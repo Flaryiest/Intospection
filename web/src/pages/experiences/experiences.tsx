@@ -14,31 +14,7 @@ export default function Experiences() {
             <div className={styles.columns}>
                 <div className={styles.main}>
                     <section className={styles.section}>
-                        <h2 className={styles.sectionTitle}>Work</h2>
-                                                <div className={styles.entry}>
-                            <div className={styles.entryHeader}>
-                                <h3 className={styles.entryTitle}>
-                                    <a
-                                        href="https://hamming.ai"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className={styles.link}
-                                    >
-                                        Hamming AI
-                                    </a>
-                                </h3>
-                                <span className={styles.entryMeta}>
-                                    YC S24
-                                </span>
-                            </div>
-                            <p className={styles.entryDesc}>
-                                AI testing infrastructure. Worked on
-                                making sure AI agents do what they're
-                                supposed to. Turns out that's harder than
-                                it sounds.
-                            </p>
-                        </div>
-                        
+                        <h2 className={styles.sectionTitle}>Work</h2>                        
                         <div className={styles.entry}>
                             <div className={styles.entryHeader}>
                                 <h3 className={styles.entryTitle}>
@@ -52,7 +28,7 @@ export default function Experiences() {
                                     </a>
                                 </h3>
                                 <span className={styles.entryMeta}>
-                                    YC W24
+                                    YC W24 SWE Intern
                                 </span>
                             </div>
                             <p className={styles.entryDesc}>
@@ -75,7 +51,7 @@ export default function Experiences() {
                                     </a>
                                 </h3>
                                 <span className={styles.entryMeta}>
-                                    Intern
+                                    SWE Intern
                                 </span>
                             </div>
                             <p className={styles.entryDesc}>
@@ -83,6 +59,30 @@ export default function Experiences() {
                                 intervention pipeline and helped redesign
                                 the interface with the design team. React
                                 Native and Golang.
+                            </p>
+                        </div>
+
+                        <div className={styles.entry}>
+                            <div className={styles.entryHeader}>
+                                <h3 className={styles.entryTitle}>
+                                    <a
+                                        href="https://futurlign.org"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={styles.link}
+                                    >
+                                        Futurlign
+                                    </a>
+                                </h3>
+                                <span className={styles.entryMeta}>
+                                    Technical Director · Co-Founder
+                                </span>
+                            </div>
+                            <p className={styles.entryDesc}>
+                                AI education nonprofit. Led workshops for
+                                300+ students on practical AI and coding.
+                                Secured $5,000+ in funding for curriculum
+                                development and outreach.
                             </p>
                         </div>
 
@@ -230,9 +230,9 @@ export default function Experiences() {
                     <div className={styles.asideCard}>
                         <h3 className={styles.asideLabel}>Now</h3>
                         <ul className={styles.asideList}>
-                            <li>Studying linear algebra</li>
-                            <li>Exploring research directions</li>
-                            <li>Building this site</li>
+                            <li>Figuring out what to do next</li>
+                            <li>Exploring anything that seems interesting</li>
+                            <li>Finishing high school</li>
                         </ul>
                     </div>
 
@@ -240,9 +240,9 @@ export default function Experiences() {
                         <h3 className={styles.asideLabel}>Interests</h3>
                         <ul className={styles.asideList}>
                             <li>AI and agents</li>
-                            <li>Systems programming</li>
-                            <li>Writing</li>
-                            <li>Reading everything</li>
+                            <li>React</li>
+                            <li>Reading</li>
+                            <li>Going for long walks</li>
                         </ul>
                     </div>
 
@@ -250,8 +250,7 @@ export default function Experiences() {
                         <h3 className={styles.asideLabel}>Values</h3>
                         <p className={styles.asideText}>
                             Build things that matter. Learn in public.
-                            Stay curious. Don't take yourself too
-                            seriously.
+                            Stay curious. Be kind.
                         </p>
                     </div>
                 </aside>

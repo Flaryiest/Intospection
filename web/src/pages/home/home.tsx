@@ -19,17 +19,7 @@ export function Home() {
                     Magic Hour
                     <svg className={styles.arrow} viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 9L9 3M9 3H4M9 3V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 </a>{' '}
-                <span className={styles.dim}>(YC W24)</span> and{' '}
-                <a
-                    href="https://hamming.ai"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.externalLink}
-                >
-                    Hamming AI
-                    <svg className={styles.arrow} viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 9L9 3M9 3H4M9 3V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                </a>{' '}
-                <span className={styles.dim}>(YC S24)</span>.
+                <span className={styles.dim}>(YC W24)</span>.
             </p>
             <p className={styles.introText}>
                 More about me and my work can be found in{' '}

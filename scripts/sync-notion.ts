@@ -13,8 +13,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 interface Artifact {
     id: string
     title: string
-    enjoyment: number | null
-    importance: number | null
+    internalization: number | null
     status: string | null
     url: string | null
     createdAt: string | null
@@ -48,15 +47,11 @@ function extractPageProperties(page: PageObjectResponse): Artifact {
             ? extractPlainText(titleProp.title) ?? ''
             : ''
 
-    const enjoymentProp = props['Enjoyment']
-    const enjoyment =
-        enjoymentProp?.type === 'number' ? enjoymentProp.number : null
+    const internalizationProp = props['Internalization']
+    const internalization =
+        internalizationProp?.type === 'number' ? internalizationProp.number : null
 
-    const importanceProp = props['Importance']
-    const importance =
-        importanceProp?.type === 'number' ? importanceProp.number : null
-
-    const statusProp = props['Status']
+const statusProp = props['Status']
     const status =
         statusProp?.type === 'status'
             ? (statusProp.status?.name ?? null)
@@ -90,8 +85,7 @@ function extractPageProperties(page: PageObjectResponse): Artifact {
     return {
         id: page.id,
         title,
-        enjoyment,
-        importance,
+        internalization,
         status,
         url,
         createdAt,

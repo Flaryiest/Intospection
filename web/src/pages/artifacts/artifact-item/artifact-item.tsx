@@ -46,21 +46,10 @@ export default function ArtifactItem({
                 {artifact.createdAt ? formatDate(artifact.createdAt) : '—'}
             </td>
             <td className={styles.scoreCell}>
-                {artifact.enjoyment !== null ? (
+                {artifact.internalization !== null ? (
                     <ScoreRing
-                        value={artifact.enjoyment}
+                        value={artifact.internalization}
                         color="green"
-                        label=""
-                    />
-                ) : (
-                    <span className={styles.emptyScore}>—</span>
-                )}
-            </td>
-            <td className={styles.scoreCell}>
-                {artifact.importance !== null ? (
-                    <ScoreRing
-                        value={artifact.importance}
-                        color="blue"
                         label=""
                     />
                 ) : (
