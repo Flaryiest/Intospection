@@ -38,7 +38,6 @@ export default {
             return new Response(data ?? '[]', {
                 headers: {
                     'Content-Type': 'application/json',
-                    'Cache-Control': 'no-store, must-revalidate',
                     ...corsHeaders(request),
                 },
             })
