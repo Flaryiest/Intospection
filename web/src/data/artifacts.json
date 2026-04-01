@@ -1,8 +1,48 @@
 [
     {
+        "id": "329cf67e-5b28-8093-a648-ec350278f181",
+        "title": "Rest in Motion",
+        "internalization": 8,
+        "status": null,
+        "url": "https://mindingourway.com/rest-in-motion/",
+        "createdAt": "2026-03-20T01:06:00.000Z",
+        "notes": null,
+        "tags": []
+    },
+    {
+        "id": "328cf67e-5b28-800a-a9d5-f76dbee74b69",
+        "title": "The Adolescence of Technology",
+        "internalization": 5,
+        "status": null,
+        "url": "https://www.darioamodei.com/essay/the-adolescence-of-technology",
+        "createdAt": "2026-03-19T15:57:00.000Z",
+        "notes": null,
+        "tags": []
+    },
+    {
+        "id": "328cf67e-5b28-800d-939f-dc3f20cae636",
+        "title": "How Git Internally Works",
+        "internalization": null,
+        "status": "Completed",
+        "url": "https://octobot.medium.com/how-git-internally-works-1f0932067bee",
+        "createdAt": "2026-03-19T15:57:00.000Z",
+        "notes": null,
+        "tags": []
+    },
+    {
+        "id": "328cf67e-5b28-80c2-b5e6-d0e20e0bfb1c",
+        "title": "It’s Not That Crazy",
+        "internalization": 5,
+        "status": "Completed",
+        "url": "https://quarter--mile.com/It-s-Not-That-Crazy",
+        "createdAt": "2026-03-19T15:56:00.000Z",
+        "notes": null,
+        "tags": []
+    },
+    {
         "id": "31ecf67e-5b28-80f7-aacb-ee9067597737",
         "title": "Listening",
-        "internalization": null,
+        "internalization": 8,
         "status": "Completed",
         "url": "https://www.benkuhn.net/listen/",
         "createdAt": "2026-03-09T14:42:00.000Z",
@@ -15,7 +55,7 @@
     {
         "id": "317cf67e-5b28-804c-992e-e7dcd82ccf82",
         "title": "The Shark",
-        "internalization": null,
+        "internalization": 7,
         "status": "Completed",
         "url": "https://quarter--mile.com/The-Shark",
         "createdAt": "2026-03-02T21:14:00.000Z",
@@ -29,7 +69,7 @@
     {
         "id": "317cf67e-5b28-80da-b566-d1a9f58efd46",
         "title": "But Did They Win",
-        "internalization": null,
+        "internalization": 7,
         "status": "Completed",
         "url": "https://quarter--mile.com/But-Did-They-Win",
         "createdAt": "2026-03-02T21:13:00.000Z",
@@ -56,7 +96,7 @@
     {
         "id": "310cf67e-5b28-8092-9af0-e351a46ff104",
         "title": "Depression Handbook",
-        "internalization": null,
+        "internalization": 10,
         "status": "Completed",
         "url": "https://masonjwang.com/writing/handbook",
         "createdAt": "2026-02-23T15:22:00.000Z",
