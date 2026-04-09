@@ -142,16 +142,16 @@
 
 .articleCard {
     display: block;
-    padding: 1.25rem 0;
+    padding: 1.25rem 1rem;
+    padding-top: 1rem;
+    box-sizing: border-box;
     border-bottom: 1px solid var(--border-faintest);
     text-decoration: none;
     color: inherit;
     transition: background 0.15s ease;
+    border-radius: 4px;
 }
 
-.articleCard:first-child {
-    padding-top: 0;
-}
 
 .articleCard:last-child {
     border-bottom: none;
