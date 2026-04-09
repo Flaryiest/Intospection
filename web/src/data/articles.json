@@ -1,0 +1,11 @@
+[
+    {
+        "id": "sample-1",
+        "title": "Sample Article",
+        "slug": "sample-article",
+        "description": "A sample article for local development.",
+        "publishedAt": "2026-04-01",
+        "tags": ["dev"],
+        "contentHtml": "<h2>Hello World</h2>\n<p>This is a <strong>sample article</strong> for local development. Replace this with real content from Notion.</p>\n<h3>A subheading</h3>\n<p>Some more text with <em>italic</em> and <code>inline code</code>.</p>\n<pre><code class=\"language-javascript\">console.log('hello');</code></pre>\n<blockquote>A wise quote here.</blockquote>\n<ul>\n<li>First item</li>\n<li>Second item</li>\n</ul>"
+    }
+]
