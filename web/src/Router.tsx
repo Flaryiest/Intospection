@@ -8,6 +8,7 @@ import { Home } from '@pages/home/home.tsx'
 import Artifacts from '@pages/artifacts/artifacts.tsx'
 import Experiences from '@pages/experiences/experiences.tsx'
 import Writing from '@pages/writing/writing.tsx'
+import ArticlePage from '@pages/writing/article.tsx'
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -16,6 +17,7 @@ const router = createBrowserRouter(
             <Route path="/artifacts" element={<Artifacts />} />
             <Route path="/experiences" element={<Experiences />} />
             <Route path="/writing" element={<Writing />} />
+            <Route path="/writing/:slug" element={<ArticlePage />} />
         </Route>
     )
 )

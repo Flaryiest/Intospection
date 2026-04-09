@@ -8,3 +8,16 @@ export interface Artifact {
     notes: string | null
     tags: string[]
 }
+
+export interface ArticleSummary {
+    id: string
+    title: string
+    slug: string
+    description: string | null
+    publishedAt: string | null
+    tags: string[]
+}
+
+export interface Article extends ArticleSummary {
+    contentHtml: string
+}

@@ -7,6 +7,10 @@
         {
             "binding": "ARTIFACTS_KV",
             "id": "1b5c2197fb7e4e12af78f0d225196e42"
+        },
+        {
+            "binding": "WRITING_KV",
+            "id": "a17fb396bf364180a1a28bbbd102cbb7"
         }
     ],
     "triggers": {

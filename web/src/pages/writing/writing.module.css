@@ -131,3 +131,343 @@
     font-style: italic;
     line-height: 1.7;
 }
+
+/* ── Article list ── */
+
+.articleList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.articleCard {
+    display: block;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border-faintest);
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.15s ease;
+}
+
+.articleCard:first-child {
+    padding-top: 0;
+}
+
+.articleCard:last-child {
+    border-bottom: none;
+}
+
+.articleCard:hover {
+    background: var(--surface-hover);
+}
+
+.articleTitle {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.4rem;
+    line-height: 1.4;
+}
+
+.articleMeta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.articleDate {
+    font-size: 0.8rem;
+    font-family: 'Open Sans', sans-serif;
+    color: var(--text-ghost);
+}
+
+.articleTags {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+}
+
+.articleTag {
+    font-size: 0.7rem;
+    font-family: 'Open Sans', sans-serif;
+    color: var(--text-faint);
+    background: var(--surface);
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+}
+
+.articleDescription {
+    font-size: 0.88rem;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+}
+
+/* ── Article detail page ── */
+
+.articleContainer {
+    width: 100%;
+    max-width: 640px;
+    padding: 0 2.5rem;
+    box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+    .articleContainer {
+        padding: 0 1.25rem;
+    }
+}
+
+.backLink {
+    display: inline-block;
+    font-size: 0.82rem;
+    font-family: 'Open Sans', sans-serif;
+    color: var(--text-ghost);
+    text-decoration: none;
+    margin-bottom: 2rem;
+    transition: color 0.15s ease;
+}
+
+.backLink:hover {
+    color: var(--text-muted);
+}
+
+.articleHeader {
+    margin-bottom: 2.5rem;
+}
+
+.articlePageTitle {
+    font-size: 2.1rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    line-height: 1.25;
+}
+
+/* ── Prose: scoped typographic styles for article content ── */
+
+.prose {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: var(--text-body);
+}
+
+.prose h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.prose h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.35;
+}
+
+.prose h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.prose p {
+    margin-bottom: 1.25rem;
+}
+
+.prose a {
+    color: var(--link-color);
+    text-decoration: underline;
+    text-decoration-color: var(--link-underline);
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.15s ease;
+}
+
+.prose a:hover {
+    text-decoration-color: var(--link-color);
+}
+
+.prose strong {
+    font-weight: 700;
+    color: var(--text-secondary);
+}
+
+.prose em {
+    font-style: italic;
+}
+
+.prose s {
+    text-decoration: line-through;
+}
+
+.prose u {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.prose code {
+    font-family: 'SF Mono', 'Fira Code', 'Fira Mono', Menlo, Consolas, monospace;
+    font-size: 0.85em;
+    background: var(--surface);
+    padding: 0.15em 0.35em;
+    border-radius: 3px;
+    color: var(--text-secondary);
+}
+
+.prose pre {
+    background: var(--surface);
+    border: 1px solid var(--border-lighter);
+    border-radius: 6px;
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.prose pre code {
+    background: none;
+    padding: 0;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.prose ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.prose ol {
+    list-style: decimal;
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.prose li {
+    margin-bottom: 0.35rem;
+    line-height: 1.75;
+}
+
+.prose li ul,
+.prose li ol {
+    margin-top: 0.35rem;
+    margin-bottom: 0;
+}
+
+.prose blockquote {
+    border-left: 3px solid var(--border);
+    padding-left: 1.25rem;
+    margin-bottom: 1.25rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.prose hr {
+    border: none;
+    height: 1px;
+    background: var(--border);
+    margin: 2rem 0;
+}
+
+.prose figure {
+    margin-bottom: 1.5rem;
+}
+
+.prose img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    display: block;
+}
+
+.prose figcaption {
+    font-size: 0.82rem;
+    color: var(--text-ghost);
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+/* Callout */
+.prose :global(.callout) {
+    display: flex;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    background: var(--subscribe-bg);
+    border: 1px solid var(--border-lighter);
+    border-radius: 6px;
+    margin-bottom: 1.25rem;
+}
+
+.prose :global(.callout-icon) {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    line-height: 1.85;
+}
+
+.prose :global(.callout) div {
+    flex: 1;
+}
+
+.prose :global(.callout) p {
+    margin-bottom: 0;
+}
+
+/* Bookmark */
+.prose :global(a.bookmark) {
+    display: block;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-lighter);
+    border-radius: 6px;
+    margin-bottom: 1.25rem;
+    font-size: 0.85rem;
+    color: var(--link-color);
+    word-break: break-all;
+    transition: border-color 0.15s ease;
+}
+
+.prose :global(a.bookmark):hover {
+    border-color: var(--border);
+}
+
+/* Code caption */
+.prose :global(.code-caption) {
+    font-size: 0.82rem;
+    color: var(--text-ghost);
+    margin-top: -0.75rem;
+    margin-bottom: 1.25rem;
+    text-align: center;
+}
+
+/* Toggle / details */
+.prose details {
+    border: 1px solid var(--border-lighter);
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.prose summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.prose details[open] summary {
+    margin-bottom: 0.75rem;
+}

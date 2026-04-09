@@ -1,7 +1,20 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { useArticles } from '@hooks/useArticles'
 import styles from './writing.module.css'
 
+function formatDate(dateStr: string | null): string {
+    if (!dateStr) return ''
+    const date = new Date(dateStr)
+    return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+    })
+}
+
 export default function Writing() {
+    const { articles, isLoading, error } = useArticles()
     const [email, setEmail] = useState('')
     const [status, setStatus] = useState<
         'idle' | 'loading' | 'success' | 'error'
@@ -18,11 +31,10 @@ export default function Writing() {
             : 'http://localhost:3001'
         try {
             const res = await fetch(`${apiBase}/api/mailing-list`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email: email.trim() }),
-                }
-            )
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: email.trim() }),
+            })
             if (!res.ok) {
                 const data = await res.json()
                 throw new Error(data.error || 'Something went wrong')
@@ -32,9 +44,7 @@ export default function Writing() {
         } catch (err) {
             setStatus('error')
             setErrorMsg(
-                err instanceof Error
-                    ? err.message
-                    : 'Something went wrong'
+                err instanceof Error ? err.message : 'Something went wrong'
             )
         }
     }
@@ -48,8 +58,8 @@ export default function Writing() {
 
             <div className={styles.subscribe}>
                 <p className={styles.subscribeText}>
-                    If you'd like to know when I publish something new,
-                    leave your email below.
+                    If you'd like to know when I publish something new, leave
+                    your email below.
                 </p>
                 {status === 'success' ? (
                     <p className={styles.successMsg}>
@@ -86,11 +96,55 @@ export default function Writing() {
 
             <div className={styles.divider}></div>
 
-            <div className={styles.empty}>
-                <p className={styles.emptyText}>
-                    Nothing here yet — check back later.
-                </p>
-            </div>
+            {isLoading ? (
+                <p className={styles.emptyText}>Loading articles...</p>
+            ) : error ? (
+                <p className={styles.emptyText}>Failed to load articles.</p>
+            ) : articles.length === 0 ? (
+                <div className={styles.empty}>
+                    <p className={styles.emptyText}>
+                        Nothing here yet — check back later.
+                    </p>
+                </div>
+            ) : (
+                <div className={styles.articleList}>
+                    {articles.map((article) => (
+                        <Link
+                            key={article.id}
+                            to={`/writing/${article.slug}`}
+                            className={styles.articleCard}
+                        >
+                            <h2 className={styles.articleTitle}>
+                                {article.title}
+                            </h2>
+                            <div className={styles.articleMeta}>
+                                {article.publishedAt && (
+                                    <span className={styles.articleDate}>
+                                        {formatDate(article.publishedAt)}
+                                    </span>
+                                )}
+                                {article.tags.length > 0 && (
+                                    <div className={styles.articleTags}>
+                                        {article.tags.map((tag) => (
+                                            <span
+                                                key={tag}
+                                                className={styles.articleTag}
+                                            >
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                            {article.description && (
+                                <p className={styles.articleDescription}>
+                                    {article.description}
+                                </p>
+                            )}
+                        </Link>
+                    ))}
+                </div>
+            )}
         </div>
     )
 }
