@@ -14,10 +14,7 @@ interface CommandPaletteProps {
     onClose: () => void
 }
 
-export default function CommandPalette({
-    open,
-    onClose,
-}: CommandPaletteProps) {
+export default function CommandPalette({ open, onClose }: CommandPaletteProps) {
     const [active, setActive] = useState(0)
     const navigate = useNavigate()
     const overlayRef = useRef<HTMLDivElement>(null)
@@ -31,10 +28,7 @@ export default function CommandPalette({
     )
 
     useEffect(() => {
-        if (!open) {
-            setActive(0)
-            return
-        }
+        if (!open) return
 
         const handleKey = (e: KeyboardEvent) => {
             if (e.key === 'Escape') {
@@ -44,9 +38,7 @@ export default function CommandPalette({
                 setActive((p) => (p + 1) % PAGES.length)
             } else if (e.key === 'ArrowUp') {
                 e.preventDefault()
-                setActive(
-                    (p) => (p - 1 + PAGES.length) % PAGES.length
-                )
+                setActive((p) => (p - 1 + PAGES.length) % PAGES.length)
             } else if (e.key === 'Enter') {
                 e.preventDefault()
                 go(active)
@@ -87,7 +79,10 @@ export default function CommandPalette({
                             </span>
                             {i === active && (
                                 <span className={styles.itemHint}>
-                                    /{page.path === '/' ? '' : page.path.slice(1)}
+                                    /
+                                    {page.path === '/'
+                                        ? ''
+                                        : page.path.slice(1)}
                                 </span>
                             )}
                         </div>

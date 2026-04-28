@@ -1,39 +1,42 @@
 import { useState, useEffect } from 'react'
 import type { Artifact } from '@data/types'
-
-const WORKER_URL = import.meta.env.PROD
-    ? 'https://intospection-artifacts.ericmzuo1.workers.dev'
-    : null
+import { loadArtifacts, readArtifacts } from './content-cache'
 
 export function useArtifacts() {
-    const [artifacts, setArtifacts] = useState<Artifact[]>([])
-    const [isLoading, setIsLoading] = useState(true)
+    const cachedArtifacts = readArtifacts()
+    const [artifacts, setArtifacts] = useState<Artifact[]>(
+        cachedArtifacts ?? []
+    )
+    const [isPending, setIsPending] = useState(cachedArtifacts === undefined)
     const [error, setError] = useState<string | null>(null)
 
     useEffect(() => {
-        if (!WORKER_URL) {
-            import('@data/artifacts.json').then((mod) => {
-                setArtifacts(mod.default as Artifact[])
-                setIsLoading(false)
-            })
-            return
-        }
+        let cancelled = false
 
-        fetch(`${WORKER_URL}/artifacts`)
-            .then((res) => {
-                if (!res.ok) throw new Error(`HTTP ${res.status}`)
-                return res.json()
+        loadArtifacts()
+            .then((data) => {
+                if (!cancelled) {
+                    setArtifacts(data)
+                    setError(null)
+                }
             })
-            .then((data) => setArtifacts(data as Artifact[]))
-            .catch((err) =>
-                setError(
-                    err instanceof Error
-                        ? err.message
-                        : 'Failed to load artifacts'
-                )
+            .catch(
+                (err) =>
+                    !cancelled &&
+                    setError(
+                        err instanceof Error
+                            ? err.message
+                            : 'Failed to load artifacts'
+                    )
             )
-            .finally(() => setIsLoading(false))
+            .finally(() => {
+                if (!cancelled) setIsPending(false)
+            })
+
+        return () => {
+            cancelled = true
+        }
     }, [])
 
-    return { artifacts, isLoading, error }
+    return { artifacts, isPending, isLoading: isPending, error }
 }

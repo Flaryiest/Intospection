@@ -3,6 +3,7 @@ import Navbar from '@components/navbar/navbar'
 import Footer from '@components/footer/footer'
 import CursorCanvas from '@components/cursor-canvas/cursor-canvas'
 import CommandPalette from '@components/command-palette/command-palette'
+import { preloadContent } from '@hooks/content-cache'
 import { Outlet } from 'react-router-dom'
 import styles from './layout.module.css'
 
@@ -23,10 +24,16 @@ export default function Layout() {
         return () => document.removeEventListener('keydown', handleKey)
     }, [])
 
+    useEffect(() => {
+        preloadContent()
+    }, [])
+
     return (
         <>
             <CursorCanvas />
-            <CommandPalette open={paletteOpen} onClose={closePalette} />
+            {paletteOpen && (
+                <CommandPalette open={paletteOpen} onClose={closePalette} />
+            )}
             <div className={styles.layout}>
                 <Navbar />
                 <div className={styles.page}>

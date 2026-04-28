@@ -1,48 +1,65 @@
 import { useState, useEffect } from 'react'
 import type { Article } from '@data/types'
+import { hasArticle, loadArticle, readArticle } from './content-cache'
 
-const WORKER_URL = import.meta.env.PROD
-    ? 'https://intospection-artifacts.ericmzuo1.workers.dev'
-    : null
+interface ArticleState {
+    slug: string | undefined
+    article: Article | null
+    isPending: boolean
+    error: string | null
+}
 
 export function useArticle(slug: string | undefined) {
-    const [article, setArticle] = useState<Article | null>(null)
-    const [isLoading, setIsLoading] = useState(true)
-    const [error, setError] = useState<string | null>(null)
+    const hasCachedArticle = slug ? hasArticle(slug) : true
+    const cachedArticle =
+        slug && hasCachedArticle ? (readArticle(slug) ?? null) : null
+    const [state, setState] = useState<ArticleState>({
+        slug,
+        article: cachedArticle,
+        isPending: Boolean(slug && !hasCachedArticle),
+        error: null,
+    })
+    const stateMatchesSlug = state.slug === slug
+    const article = stateMatchesSlug ? state.article : cachedArticle
+    const isPending = stateMatchesSlug
+        ? state.isPending
+        : Boolean(slug && !hasCachedArticle)
+    const error = stateMatchesSlug ? state.error : null
 
     useEffect(() => {
-        if (!slug) {
-            setIsLoading(false)
-            return
-        }
+        let cancelled = false
 
-        if (!WORKER_URL) {
-            import('@data/articles.json').then((mod) => {
-                const found = (mod.default as Article[]).find(
-                    (a) => a.slug === slug
-                )
-                setArticle(found ?? null)
-                setIsLoading(false)
-            })
-            return
-        }
+        if (!slug) return
 
-        fetch(`${WORKER_URL}/articles/${encodeURIComponent(slug)}`)
-            .then((res) => {
-                if (res.status === 404) return null
-                if (!res.ok) throw new Error(`HTTP ${res.status}`)
-                return res.json()
+        loadArticle(slug)
+            .then((data) => {
+                if (!cancelled) {
+                    setState({
+                        slug,
+                        article: data,
+                        isPending: false,
+                        error: null,
+                    })
+                }
             })
-            .then((data) => setArticle(data as Article | null))
-            .catch((err) =>
-                setError(
-                    err instanceof Error
-                        ? err.message
-                        : 'Failed to load article'
-                )
+            .catch(
+                (err) =>
+                    !cancelled &&
+                    setState({
+                        slug,
+                        article: null,
+                        isPending: false,
+                        error:
+                            err instanceof Error
+                                ? err.message
+                                : 'Failed to load article',
+                    })
             )
-            .finally(() => setIsLoading(false))
+
+        return () => {
+            cancelled = true
+        }
     }, [slug])
 
-    return { article, isLoading, error }
+    return { article, isPending, isLoading: isPending, error }
 }

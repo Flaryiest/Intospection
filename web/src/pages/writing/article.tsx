@@ -19,7 +19,9 @@ export default function ArticlePage() {
     if (isLoading) {
         return (
             <div className={styles.container}>
-                <p className={styles.emptyText}>Loading...</p>
+                <p className={`${styles.emptyText} ${styles.delayedLoading}`}>
+                    Loading...
+                </p>
             </div>
         )
     }

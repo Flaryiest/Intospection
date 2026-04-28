@@ -97,7 +97,9 @@ export default function Writing() {
             <div className={styles.divider}></div>
 
             {isLoading ? (
-                <p className={styles.emptyText}>Loading articles...</p>
+                <p className={`${styles.emptyText} ${styles.delayedLoading}`}>
+                    Loading articles...
+                </p>
             ) : error ? (
                 <p className={styles.emptyText}>Failed to load articles.</p>
             ) : articles.length === 0 ? (

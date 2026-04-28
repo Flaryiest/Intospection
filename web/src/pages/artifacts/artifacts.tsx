@@ -71,61 +71,68 @@ export default function Artifacts() {
                 Things I've read, watched, and explored.
             </p>
             {isLoading ? (
-                <p className={styles.subtitle}>Loading artifacts...</p>
+                <p className={`${styles.subtitle} ${styles.delayedLoading}`}>
+                    Loading artifacts...
+                </p>
             ) : error ? (
                 <p className={styles.subtitle}>Failed to load artifacts.</p>
-            ) : (<>
-            <TagFilter
-                tags={allTags}
-                activeTag={activeTag}
-                onTagSelect={setActiveTag}
-            />
-            <div className={styles.tableWrap}>
-            <table className={styles.table}>
-                <thead>
-                    <tr>
-                        <th className={styles.colTitle}>Title</th>
-                        <th className={styles.colDate}>Date</th>
-                        <th
-                            className={`${styles.colInternalization} ${styles.sortable}`}
-                            onClick={() => toggleSort('internalization')}
-                        >
-                            Internalization
-                            <span
-                                className={`${styles.sortArrow}${sort?.field === 'internalization' ? ` ${styles.sortArrowVisible}` : ''}`}
-                            >
-                                {sort?.field === 'internalization' && sort.dir === 'asc' ? '▲' : '▼'}
-                            </span>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {sorted.map((artifact) => (
-                        <ArtifactItem
-                            key={artifact.id}
-                            artifact={artifact}
-                            isActive={selected?.id === artifact.id}
-                            onSelect={setSelected}
-                        />
-                    ))}
-                </tbody>
-            </table>
-            </div>
-            {!isLoading && !error && artifacts.length > 0 && (
-                <p className={styles.count}>
-                    {filtered.length} artifact
-                    {filtered.length !== 1 ? 's' : ''}
-                    {activeTag ? ` tagged "${activeTag}"` : ''}
-                </p>
+            ) : (
+                <>
+                    <TagFilter
+                        tags={allTags}
+                        activeTag={activeTag}
+                        onTagSelect={setActiveTag}
+                    />
+                    <div className={styles.tableWrap}>
+                        <table className={styles.table}>
+                            <thead>
+                                <tr>
+                                    <th className={styles.colTitle}>Title</th>
+                                    <th className={styles.colDate}>Date</th>
+                                    <th
+                                        className={`${styles.colInternalization} ${styles.sortable}`}
+                                        onClick={() =>
+                                            toggleSort('internalization')
+                                        }
+                                    >
+                                        Internalization
+                                        <span
+                                            className={`${styles.sortArrow}${sort?.field === 'internalization' ? ` ${styles.sortArrowVisible}` : ''}`}
+                                        >
+                                            {sort?.field ===
+                                                'internalization' &&
+                                            sort.dir === 'asc'
+                                                ? '▲'
+                                                : '▼'}
+                                        </span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {sorted.map((artifact) => (
+                                    <ArtifactItem
+                                        key={artifact.id}
+                                        artifact={artifact}
+                                        isActive={selected?.id === artifact.id}
+                                        onSelect={setSelected}
+                                    />
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                    {!isLoading && !error && artifacts.length > 0 && (
+                        <p className={styles.count}>
+                            {filtered.length} artifact
+                            {filtered.length !== 1 ? 's' : ''}
+                            {activeTag ? ` tagged "${activeTag}"` : ''}
+                        </p>
+                    )}
+                </>
             )}
-            </>)}
 
             {selected && (
                 <>
-                    <div
-                        className={styles.overlay}
-                        onClick={closeSidebar}
-                    />
+                    <div className={styles.overlay} onClick={closeSidebar} />
                     <div className={styles.sidebar}>
                         <button
                             className={styles.sidebarClose}

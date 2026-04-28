@@ -132,6 +132,19 @@
     line-height: 1.7;
 }
 
+.delayedLoading {
+    visibility: hidden;
+    opacity: 0;
+    animation: showDelayedLoading 0s linear 1s forwards;
+}
+
+@keyframes showDelayedLoading {
+    to {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
 /* ── Article list ── */
 
 .articleList {
@@ -151,7 +164,6 @@
     transition: background 0.15s ease;
     border-radius: 4px;
 }
-
 
 .articleCard:last-child {
     border-bottom: none;
@@ -321,7 +333,8 @@
 }
 
 .prose code {
-    font-family: 'SF Mono', 'Fira Code', 'Fira Mono', Menlo, Consolas, monospace;
+    font-family:
+        'SF Mono', 'Fira Code', 'Fira Mono', Menlo, Consolas, monospace;
     font-size: 0.85em;
     background: var(--surface);
     padding: 0.15em 0.35em;

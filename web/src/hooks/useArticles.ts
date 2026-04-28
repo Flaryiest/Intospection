@@ -1,50 +1,42 @@
 import { useState, useEffect } from 'react'
 import type { ArticleSummary } from '@data/types'
-
-const WORKER_URL = import.meta.env.PROD
-    ? 'https://intospection-artifacts.ericmzuo1.workers.dev'
-    : null
+import { loadArticles, readArticles } from './content-cache'
 
 export function useArticles() {
-    const [articles, setArticles] = useState<ArticleSummary[]>([])
-    const [isLoading, setIsLoading] = useState(true)
+    const cachedArticles = readArticles()
+    const [articles, setArticles] = useState<ArticleSummary[]>(
+        cachedArticles ?? []
+    )
+    const [isPending, setIsPending] = useState(cachedArticles === undefined)
     const [error, setError] = useState<string | null>(null)
 
     useEffect(() => {
-        if (!WORKER_URL) {
-            import('@data/articles.json').then((mod) => {
-                setArticles(
-                    (mod.default as ArticleSummary[]).map(
-                        ({ id, title, slug, description, publishedAt, tags }) => ({
-                            id,
-                            title,
-                            slug,
-                            description,
-                            publishedAt,
-                            tags,
-                        })
-                    )
-                )
-                setIsLoading(false)
-            })
-            return
-        }
+        let cancelled = false
 
-        fetch(`${WORKER_URL}/articles`)
-            .then((res) => {
-                if (!res.ok) throw new Error(`HTTP ${res.status}`)
-                return res.json()
+        loadArticles()
+            .then((data) => {
+                if (!cancelled) {
+                    setArticles(data)
+                    setError(null)
+                }
             })
-            .then((data) => setArticles(data as ArticleSummary[]))
-            .catch((err) =>
-                setError(
-                    err instanceof Error
-                        ? err.message
-                        : 'Failed to load articles'
-                )
+            .catch(
+                (err) =>
+                    !cancelled &&
+                    setError(
+                        err instanceof Error
+                            ? err.message
+                            : 'Failed to load articles'
+                    )
             )
-            .finally(() => setIsLoading(false))
+            .finally(() => {
+                if (!cancelled) setIsPending(false)
+            })
+
+        return () => {
+            cancelled = true
+        }
     }, [])
 
-    return { articles, isLoading, error }
+    return { articles, isPending, isLoading: isPending, error }
 }
