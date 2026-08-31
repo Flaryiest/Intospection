@@ -1,6 +1,25 @@
 import { Link } from 'react-router-dom'
 import styles from './home.module.css'
 
+function Arrow() {
+    return (
+        <svg
+            className={styles.arrow}
+            viewBox="0 0 12 12"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="M3 9L9 3M9 3H4M9 3V8"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </svg>
+    )
+}
+
 export function Home() {
     return (
         <>
@@ -17,7 +36,7 @@ export function Home() {
                     className={styles.externalLink}
                 >
                     Magic Hour
-                    <svg className={styles.arrow} viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 9L9 3M9 3H4M9 3V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    <Arrow />
                 </a>{' '}
                 <span className={styles.dim}>(YC W24)</span>.
             </p>
@@ -25,7 +44,7 @@ export function Home() {
                 More about me and my work can be found in{' '}
                 <Link to="/experiences" className={styles.pageLink}>
                     experiences
-                    <svg className={styles.arrow} viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 9L9 3M9 3H4M9 3V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    <Arrow />
                 </Link>
                 .
             </p>
@@ -39,13 +58,13 @@ export function Home() {
                         In my free time, I enjoy{' '}
                         <Link to="/writing" className={styles.pageLink}>
                             writing
-                            <svg className={styles.arrow} viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 9L9 3M9 3H4M9 3V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                            <Arrow />
                         </Link>{' '}
-                        and reading all types of works — you can find what
+                        and reading all types of works. You can find what
                         I've been consuming in{' '}
                         <Link to="/artifacts" className={styles.pageLink}>
                             artifacts
-                            <svg className={styles.arrow} viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 9L9 3M9 3H4M9 3V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                            <Arrow />
                         </Link>
                         .
                     </p>

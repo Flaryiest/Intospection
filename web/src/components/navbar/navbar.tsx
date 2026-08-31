@@ -9,6 +9,15 @@ export default function Navbar() {
             <nav className={styles.nav}>
                 <ul className={styles.navList}>
                     <li className={styles.navItem}>
+                        <a
+                            href="/Eric_Zuo_Resume.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Resume
+                        </a>
+                    </li>
+                    <li className={styles.navItem}>
                         <Link to="/experiences">Experiences</Link>
                     </li>
                     <li className={styles.navItem}>

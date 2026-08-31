@@ -1,16 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import { useArticle } from '@hooks/useArticle'
+import { formatDate } from '@utils/format-date'
 import styles from './writing.module.css'
-
-function formatDate(dateStr: string | null): string {
-    if (!dateStr) return ''
-    const date = new Date(dateStr)
-    return date.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-    })
-}
 
 export default function ArticlePage() {
     const { slug } = useParams<{ slug: string }>()
@@ -56,7 +47,7 @@ export default function ArticlePage() {
                 <div className={styles.articleMeta}>
                     {article.publishedAt && (
                         <span className={styles.articleDate}>
-                            {formatDate(article.publishedAt)}
+                            {formatDate(article.publishedAt, 'long')}
                         </span>
                     )}
                     {article.tags.length > 0 && (

@@ -1,17 +1,8 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useArticles } from '@hooks/useArticles'
+import { formatDate } from '@utils/format-date'
 import styles from './writing.module.css'
-
-function formatDate(dateStr: string | null): string {
-    if (!dateStr) return ''
-    const date = new Date(dateStr)
-    return date.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-    })
-}
 
 export default function Writing() {
     const { articles, isLoading, error } = useArticles()
@@ -63,7 +54,7 @@ export default function Writing() {
                 </p>
                 {status === 'success' ? (
                     <p className={styles.successMsg}>
-                        You're on the list — thank you!
+                        You're on the list. Thank you!
                     </p>
                 ) : (
                     <form
@@ -105,7 +96,7 @@ export default function Writing() {
             ) : articles.length === 0 ? (
                 <div className={styles.empty}>
                     <p className={styles.emptyText}>
-                        Nothing here yet — check back later.
+                        Nothing here yet. Check back later.
                     </p>
                 </div>
             ) : (

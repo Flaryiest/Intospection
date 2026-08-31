@@ -1,20 +1,11 @@
 import { useState, useMemo, useCallback, useEffect } from 'react'
 import type { Artifact } from '@data/types'
 import { useArtifacts } from '@hooks/useArtifacts'
+import { formatDate } from '@utils/format-date'
 import TagFilter from '@components/tag-filter/tag-filter'
 import ScoreRing from './artifact-item/score-ring'
 import ArtifactItem from './artifact-item/artifact-item'
 import styles from './artifacts.module.css'
-
-function formatDate(dateStr: string | null): string {
-    if (!dateStr) return ''
-    const date = new Date(dateStr)
-    return date.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-    })
-}
 
 type SortField = 'internalization'
 type SortDir = 'asc' | 'desc'

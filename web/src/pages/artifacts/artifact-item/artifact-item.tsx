@@ -1,4 +1,5 @@
 import type { Artifact } from '@data/types'
+import { formatDate } from '@utils/format-date'
 import ScoreRing from './score-ring'
 import styles from './artifact-item.module.css'
 
@@ -6,16 +7,6 @@ interface ArtifactItemProps {
     artifact: Artifact
     isActive: boolean
     onSelect: (artifact: Artifact) => void
-}
-
-function formatDate(dateStr: string | null): string {
-    if (!dateStr) return ''
-    const date = new Date(dateStr)
-    return date.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-    })
 }
 
 export default function ArtifactItem({
@@ -43,7 +34,7 @@ export default function ArtifactItem({
                 </div>
             </td>
             <td className={styles.date}>
-                {artifact.createdAt ? formatDate(artifact.createdAt) : '—'}
+                {artifact.createdAt ? formatDate(artifact.createdAt) : '–'}
             </td>
             <td className={styles.scoreCell}>
                 {artifact.internalization !== null ? (
@@ -53,7 +44,7 @@ export default function ArtifactItem({
                         label=""
                     />
                 ) : (
-                    <span className={styles.emptyScore}>—</span>
+                    <span className={styles.emptyScore}>–</span>
                 )}
             </td>
         </tr>
