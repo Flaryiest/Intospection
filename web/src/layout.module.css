@@ -18,3 +18,10 @@
     padding-top: 2rem;
     box-sizing: border-box;
 }
+
+@media (max-width: 600px) {
+    .page {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+}

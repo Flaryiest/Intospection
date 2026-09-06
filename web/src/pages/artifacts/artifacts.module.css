@@ -6,7 +6,7 @@
 
 @media (max-width: 600px) {
     .container {
-        padding: 0 1.25rem;
+        padding: 0;
     }
 }
 
@@ -95,6 +95,38 @@
     visibility: visible;
 }
 
+.labelShort {
+    display: none;
+}
+
+/* Phones and small tablets: no minimum table width, Date column hidden (shown under the
+   title), short score header. The 600px table only fits from ~744px up with the desktop gutters. */
+@media (max-width: 760px) {
+    .table {
+        min-width: 0;
+    }
+
+    .table th {
+        padding: 0.5rem 0.5rem;
+    }
+
+    .colDate {
+        display: none;
+    }
+
+    .colInternalization {
+        width: 64px;
+    }
+
+    .labelFull {
+        display: none;
+    }
+
+    .labelShort {
+        display: inline;
+    }
+}
+
 .count {
     margin-top: 2rem;
     font-size: 0.85rem;
@@ -166,6 +198,19 @@
 
 .sidebarClose:hover {
     color: var(--text-secondary);
+}
+
+/* Touch devices: give the close glyph a 44px hit area */
+@media (hover: none) and (pointer: coarse) {
+    .sidebarClose {
+        top: 0.5rem;
+        right: 0.5rem;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        display: grid;
+        place-items: center;
+    }
 }
 
 .sidebarTitle {

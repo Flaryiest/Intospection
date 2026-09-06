@@ -42,6 +42,14 @@
     font-family: 'Open Sans', sans-serif;
 }
 
+.mobileDate {
+    display: none;
+    margin-top: 0.2rem;
+    font-size: 0.75rem;
+    color: var(--text-ghost);
+    font-family: 'Open Sans', sans-serif;
+}
+
 .date {
     font-size: 0.8rem;
     color: var(--text-ghost);
@@ -58,4 +66,19 @@
     font-size: 0.8rem;
     color: var(--text-invisible);
     font-family: 'Open Sans', sans-serif;
+}
+
+/* Phones and small tablets: the Date column is hidden and the date moves under the title */
+@media (max-width: 760px) {
+    .row td {
+        padding: 0.75rem 0.5rem;
+    }
+
+    .date {
+        display: none;
+    }
+
+    .mobileDate {
+        display: block;
+    }
 }

@@ -86,7 +86,12 @@ export default function Artifacts() {
                                             toggleSort('internalization')
                                         }
                                     >
-                                        Internalization
+                                        <span className={styles.labelFull}>
+                                            Internalization
+                                        </span>
+                                        <span className={styles.labelShort}>
+                                            Score
+                                        </span>
                                         <span
                                             className={`${styles.sortArrow}${sort?.field === 'internalization' ? ` ${styles.sortArrowVisible}` : ''}`}
                                         >

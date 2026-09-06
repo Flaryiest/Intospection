@@ -6,7 +6,7 @@
 
 @media (max-width: 600px) {
     .container {
-        padding: 0 1.25rem;
+        padding: 0;
     }
 }
 
@@ -69,8 +69,9 @@
 
 .entryHeader {
     display: flex;
+    flex-wrap: wrap;
     align-items: baseline;
-    gap: 0.75rem;
+    gap: 0.25rem 0.75rem;
     margin-bottom: 0.35rem;
 }
 
@@ -185,6 +186,17 @@
     color: var(--text-faint);
 }
 
+/* Tablets: narrow the aside so the main column keeps room for the log rows */
+@media (max-width: 968px) {
+    .columns {
+        gap: 2.5rem;
+    }
+
+    .aside {
+        width: 170px;
+    }
+}
+
 /* Collapse aside on small screens */
 @media (max-width: 720px) {
     .columns {
@@ -203,5 +215,19 @@
         margin-bottom: 0;
         flex: 1;
         min-width: 140px;
+    }
+}
+
+/* Stack log rows on phones so the note can wrap instead of squeezing the title */
+@media (max-width: 600px) {
+    .logItem {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.15rem;
+    }
+
+    .logNote {
+        white-space: normal;
+        text-align: left;
     }
 }

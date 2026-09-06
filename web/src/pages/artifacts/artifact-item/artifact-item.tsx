@@ -14,6 +14,7 @@ export default function ArtifactItem({
     isActive,
     onSelect,
 }: ArtifactItemProps) {
+    const date = artifact.createdAt ? formatDate(artifact.createdAt) : null
     return (
         <tr
             className={`${styles.row}${isActive ? ` ${styles.active}` : ''}`}
@@ -22,6 +23,7 @@ export default function ArtifactItem({
             <td>
                 <div className={styles.info}>
                     <span className={styles.title}>{artifact.title}</span>
+                    {date && <span className={styles.mobileDate}>{date}</span>}
                     {artifact.tags.length > 0 && (
                         <div className={styles.tags}>
                             {artifact.tags.map((tag) => (
@@ -33,9 +35,7 @@ export default function ArtifactItem({
                     )}
                 </div>
             </td>
-            <td className={styles.date}>
-                {artifact.createdAt ? formatDate(artifact.createdAt) : '–'}
-            </td>
+            <td className={styles.date}>{date ?? '–'}</td>
             <td className={styles.scoreCell}>
                 {artifact.internalization !== null ? (
                     <ScoreRing
